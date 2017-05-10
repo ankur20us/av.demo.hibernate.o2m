@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="av.demo.hibernate.o2m.modal.Vendor" table="vendor">
+
+		<id name="vendorId" column="vendid" />
+		<property name="vendorName" column="vendname" length="10" />
+
+		<set name="customers" cascade="all">
+			<key column="foreignVendorId" />
+			<one-to-many class="av.demo.hibernate.o2m.modal.Customer" />
+		</set>
+
+	</class>
+</hibernate-mapping>
